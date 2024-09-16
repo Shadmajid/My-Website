@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+<body>
+
+  <nav>
+    <img class="foto" href="index.html" src="logozwartt.jpg" width="70" height="50" alt="techniek college">
+    <ul>
+      <a class="a" href="index.html">HOME</a>
+      <a class="a" href="Overmij.html">OVER MIJ</a>
+      <a class="a" href="interview.html">INTERVIEW</a>
+      <a class="a" href="vaardigheden.html">VAARDIGHEDEN</a>
+    </ul>
+  </nav>
+  
+  <div class="contacteurbackground">
+    <a class="contacteur" href="Contact.html">CONTACT</a>
+  </div>
+
+  <div class="parent">
+    <div class="formulier">
+      <h3 class="header">Contact Form</h3>
+      <div class="contactform">
+        <form id="contact-form">
+          <input class="contacttext" type="text" id="Firstname" name="firstname" placeholder="Naam" required>
+          <input class="contacttext" type="text" id="Lastname" name="lastname" placeholder="Achternaam" required>
+          <input class="contacttext" type="email" id="Email" name="email" placeholder="E-Mail" required>
+          <textarea class="contactsender" id="Message" name="message" placeholder="Schrijf Iets..." required></textarea>
+          <button class="button" type="submit">Submit</button>
+        </form>             
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h3 class="Contacthoofd">Contact Form</h3>
+    <p class="Contactparagraaf">Ik reageer binnen 3/4 werkdagen op uw verstuurde E-Mail.</p>
+  </div>
+
+  <script>
+    // Initialize EmailJS
+    emailjs.init("FRHElshtre8QKj5Ki");
+
+    // Add event listener to the form
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Send email
+      emailjs.sendForm('service_n5mom4m', 'template_ouef6sp', this)
+        .then(function(response) {
+          alert('Your message has been sent successfully!');
+          document.getElementById('contact-form').reset(); // Reset form fields
+        }, function(error) {
+          alert('An error occurred. Please try again.');
+        });
+    });
+  </script>
+
+</body>
+</html>
